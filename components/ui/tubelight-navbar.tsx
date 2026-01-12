@@ -62,11 +62,11 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:mt-6",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:mt-6 pointer-events-none",
         className
       )}
     >
-      <div className="flex items-center gap-1 bg-zinc-950/80 dark:bg-zinc-950/90 border border-zinc-800/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-2xl shadow-black/20">
+      <div className="flex items-center gap-1 bg-zinc-950/80 dark:bg-zinc-950/90 border border-zinc-800/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-2xl shadow-black/20 pointer-events-auto">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -163,7 +163,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.15, ease: "easeOut" }}
-                    className="absolute top-full mt-3 left-1/2 -translate-x-1/2 min-w-[280px]"
+                    className="absolute top-full mt-3 left-1/2 -translate-x-1/2 min-w-[280px] pointer-events-auto"
                   >
                     <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl shadow-black/40 overflow-hidden">
                       <div className="p-2">
