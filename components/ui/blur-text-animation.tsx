@@ -34,7 +34,7 @@ export default function BlurTextAnimation({
   const animationTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const resetTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
-  const textWords = useMemo(() => {
+  const textWords: WordData[] = useMemo(() => {
     if (words) return words;
 
     const splitWords = text.split(" ");
@@ -58,41 +58,16 @@ export default function BlurTextAnimation({
   }, [text, words]);
 
   useEffect(() => {
-    const startAnimation = () => {
-      // Clear any existing timeouts
-      if (animationTimeoutRef.current) clearTimeout(animationTimeoutRef.current);
-      if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
-
-      setTimeout(() => {
-        setIsAnimating(true);
-      }, 200);
-
-      // Calculate the maximum time needed for all words
-      let maxTime = 0;
-      textWords.forEach(word => {
-        const totalTime = word.delay + word.duration;
-        maxTime = Math.max(maxTime, totalTime);
-      });
-
-      // Add extra buffer time to ensure all animations complete
-      const bufferTime = 2; // 2 seconds buffer
-
-      animationTimeoutRef.current = setTimeout(() => {
-        setIsAnimating(false);
-
-        resetTimeoutRef.current = setTimeout(() => {
-          startAnimation();
-        }, animationDelay);
-      }, (maxTime + bufferTime) * 1000);
-    };
-
-    startAnimation();
+    // Only fade in once, never fade out
+    setTimeout(() => {
+      setIsAnimating(true);
+    }, 200);
 
     return () => {
       if (animationTimeoutRef.current) clearTimeout(animationTimeoutRef.current);
       if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
     };
-  }, [textWords, animationDelay]);
+  }, [textWords]);
 
   return (
     <div className={`flex items-center justify-center ${className}`}>

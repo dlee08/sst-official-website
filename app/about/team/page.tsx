@@ -25,11 +25,6 @@ const leadership = {
 const branchDirectors = {
   Queens: [
     {
-      name: "Rahul Deb",
-      email: "rdeb60@stuy.edu",
-      photo: "/team/branch_director_rahul_deb.jpg",
-    },
-    {
       name: "Alex Shao",
       email: "ashao60@stuy.edu",
       photo: "/team/default_avatar.png",
@@ -122,7 +117,6 @@ const tutors = [
   "Leyi Chen",
   "William Chen",
   "Ikenna Chukwu",
-  "Rahul Deb",
   "Alma Dream Esguerra",
   "Sabrina Gao",
   "William Gao",
