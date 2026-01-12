@@ -47,7 +47,7 @@ const branchDirectors = {
     },
     {
       name: "Kalimul Kaif",
-      email: "kkaif70@stuy.edu",
+      email: "kkaif60@stuy.edu",
       photo: "/team/branch_director_kalimul_kaif.jpeg",
     },
     {
@@ -259,12 +259,12 @@ export default function TeamPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-24"
         >
-          <div className="bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 p-12 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-48 h-48 bg-zinc-800 dark:bg-zinc-200 opacity-30 -ml-24 -mt-24 rotate-45" />
+          <div className="bg-black border-2 border-zinc-400 text-white p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-48 h-48 bg-zinc-800 opacity-20 -ml-24 -mt-24 rotate-45" />
 
             <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start relative">
               {/* Photo */}
-              <div className="aspect-square bg-zinc-800 dark:bg-zinc-200 relative overflow-hidden">
+              <div className="aspect-square bg-zinc-800 relative overflow-hidden">
                 <Image
                   src={leadership.president.photo}
                   alt={leadership.president.name}
@@ -276,17 +276,17 @@ export default function TeamPage() {
               {/* Info */}
               <div className="space-y-6">
                 <div>
-                  <p className="text-sm font-bold tracking-widest mb-2 opacity-60">
+                  <p className="text-sm font-bold tracking-widest mb-2 text-zinc-300">
                     PRESIDENT
                   </p>
-                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400 dark:from-zinc-950 dark:to-zinc-600">
+                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 text-white">
                     {leadership.president.name}
                   </h2>
-                  <p className="text-base font-medium opacity-70 mb-6">
+                  <p className="text-base font-medium text-zinc-300 mb-6">
                     {leadership.president.email}
                   </p>
                 </div>
-                <p className="text-lg leading-relaxed opacity-90">
+                <p className="text-lg leading-relaxed text-zinc-200">
                   {leadership.president.bio}
                 </p>
               </div>
@@ -301,28 +301,28 @@ export default function TeamPage() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-24"
         >
-          <div className="bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-white p-12">
+          <div className="bg-black border-2 border-zinc-400 text-white p-12">
             <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
               {/* Info */}
               <div className="space-y-6">
                 <div>
-                  <p className="text-sm font-bold tracking-widest mb-2 text-zinc-600 dark:text-zinc-400">
+                  <p className="text-sm font-bold tracking-widest mb-2 text-zinc-300">
                     VICE PRESIDENT
                   </p>
-                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 text-white">
                     {leadership.vicePresident.name}
                   </h2>
-                  <p className="text-base font-medium text-zinc-600 dark:text-zinc-500 mb-6">
+                  <p className="text-base font-medium text-zinc-300 mb-6">
                     {leadership.vicePresident.email}
                   </p>
                 </div>
-                <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+                <p className="text-lg leading-relaxed text-zinc-200">
                   {leadership.vicePresident.bio}
                 </p>
               </div>
 
               {/* Photo */}
-              <div className="aspect-square bg-zinc-200 dark:bg-zinc-800 relative overflow-hidden order-first md:order-last">
+              <div className="aspect-square bg-zinc-800 relative overflow-hidden order-first md:order-last">
                 <Image
                   src={leadership.vicePresident.photo}
                   alt={leadership.vicePresident.name}
@@ -341,7 +341,7 @@ export default function TeamPage() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mb-24"
         >
-          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-white">
             Branch Directors
           </h2>
 
@@ -352,9 +352,9 @@ export default function TeamPage() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 + boroughIndex * 0.1 }}
-                className="border-l-4 border-zinc-950 dark:border-white pl-8"
+                className="bg-black border-2 border-zinc-400 p-8"
               >
-                <h3 className="text-3xl font-black tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                <h3 className="text-3xl font-black tracking-tight mb-8 text-white">
                   {borough}
                 </h3>
 
@@ -362,7 +362,7 @@ export default function TeamPage() {
                   {directors.map((director, index) => (
                     <div key={index} className="group">
                       {/* Photo */}
-                      <div className="aspect-square bg-gradient-to-br from-zinc-200 to-zinc-400 dark:from-zinc-700 dark:to-zinc-900 relative overflow-hidden mb-4 transition-transform group-hover:scale-[1.02]">
+                      <div className="aspect-square bg-zinc-800 relative overflow-hidden mb-4 transition-transform group-hover:scale-[1.02]">
                         <Image
                           src={director.photo}
                           alt={director.name}
@@ -373,10 +373,10 @@ export default function TeamPage() {
 
                       {/* Info */}
                       <div className="space-y-2">
-                        <h4 className="text-2xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                        <h4 className="text-2xl font-black tracking-tight text-white">
                           {director.name}
                         </h4>
-                        <p className="text-sm font-medium text-zinc-600 dark:text-zinc-500">
+                        <p className="text-sm font-medium text-zinc-300">
                           {director.email}
                         </p>
                       </div>
@@ -394,10 +394,10 @@ export default function TeamPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <div className="bg-white dark:bg-black text-black dark:text-white p-12 relative overflow-hidden min-h-[600px]">
+          <div className="bg-black border-2 border-zinc-400 text-white p-12 relative overflow-hidden min-h-[600px]">
             <div className="relative">
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-black dark:text-white text-center">
-                Our Tutors
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-white text-center">
+                Thanks to Our Summer '25 Tutors
               </h2>
 
               {/* Blur Text Animation */}
