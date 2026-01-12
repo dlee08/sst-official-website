@@ -8,6 +8,7 @@ interface WordData {
   delay: number;
   blur: number;
   scale?: number;
+  color?: string;
 }
 
 interface BlurTextAnimationProps {
@@ -98,14 +99,15 @@ export default function BlurTextAnimation({
       <div className="text-center max-w-5xl px-8">
         <p className={`${fontSize} ${fontFamily} font-light leading-relaxed tracking-wide`}>
           {textWords.map((word, index) => {
-            // Create gradient effect from white to silver
-            const totalWords = textWords.length;
-            const progress = index / totalWords;
-
-            // Oscillate between white (255) and silver (192) creating waves
-            const waveEffect = Math.sin(progress * Math.PI * 4) * 0.5 + 0.5; // 0 to 1
-            const brightness = 192 + (255 - 192) * waveEffect; // 192 to 255
-            const rgb = `rgb(${brightness}, ${brightness}, ${brightness})`;
+            // Use custom color if provided, otherwise calculate gradient
+            let rgb = word.color;
+            if (!rgb) {
+              const totalWords = textWords.length;
+              const progress = index / totalWords;
+              const waveEffect = Math.sin(progress * Math.PI * 4) * 0.5 + 0.5;
+              const brightness = 192 + (255 - 192) * waveEffect;
+              rgb = `rgb(${brightness}, ${brightness}, ${brightness})`;
+            }
 
             return (
               <span
@@ -127,8 +129,8 @@ export default function BlurTextAnimation({
                   transformStyle: 'preserve-3d',
                   backfaceVisibility: 'hidden',
                   textShadow: isAnimating
-                    ? `0 2px 8px rgba(${brightness}, ${brightness}, ${brightness}, 0.1)`
-                    : `0 0 40px rgba(${brightness}, ${brightness}, ${brightness}, 0.4)`
+                    ? `0 2px 8px rgba(255, 255, 255, 0.1)`
+                    : `0 0 40px rgba(255, 255, 255, 0.4)`
                 }}
               >
                 {word.text}

@@ -98,68 +98,93 @@ const branchDirectors = {
   ],
 };
 
-// Tutors list for Summer 2025-26
+// Tutors list for Summer 2025-26 (sorted alphabetically by last name)
 const tutors = [
-  "Sandipta Barai",
-  "Cody Cai",
-  "Benjamin Xie",
-  "Isabella Wong",
-  "Shafin Kazi",
-  "Christina Chen",
-  "Ikenna Chukwu",
-  "Eric Zheng",
-  "Alex Shao",
-  "Jason Chan",
-  "Tanvir Ahmed",
-  "Ruby Vaca",
-  "Angelina Lee",
-  "Becky Lin",
-  "Efim Bensman",
-  "Jayden Vallejo",
-  "Saatvik Saha",
-  "Tahmid Azmir",
-  "Owen Zeng",
-  "Leyi Chen",
-  "Daniel Lin",
-  "Calvin Ye",
   "Mustafa Abdullah",
-  "Nicky Liu",
-  "Jackson Peng",
-  "Mabel Yang",
-  "Alma Dream Esguerra",
+  "Ardian Agoes",
+  "Tafheem Ahrar",
+  "Tanvir Ahmed",
+  "Syed Ali",
+  "Stella Anderson",
+  "Arda Ardali",
+  "Tahmid Azmir",
   "Yash Balkaran",
-  "Kaylee Olguin",
+  "Sandipta Barai",
+  "Amelia Basith",
+  "Efim Bensman",
+  "Faheem Bhuiyan",
+  "Juan Ochoa Bravo",
+  "Cody Cai",
+  "Jason Chan",
+  "Christina Chen",
   "Eric Chen",
+  "Jennifer Chen",
+  "Leyi Chen",
+  "William Chen",
+  "Ikenna Chukwu",
+  "Rahul Deb",
+  "Alma Dream Esguerra",
+  "Sabrina Gao",
+  "William Gao",
   "Lawerence Hicks",
   "Shihab Hossain",
-  "Kiran Stanton",
-  "Juan Ochoa Bravo",
-  "Tafheem Ahrar",
-  "Sabrina Gao",
-  "Thomas Liu",
-  "Faheem Bhuiyan",
-  "Syed Ali",
-  "Avery Wenger",
-  "Dipashak Rajak",
-  "William Gao",
-  "Ei Zin",
-  "Justin Manariov",
-  "Andrew Tang",
-  "Jennifer Chen",
-  "Sasha Trofimov",
-  "Kathy Zhong",
-  "Jaedon Yassin",
+  "Kalimul Kaif",
   "Amani Kaushal",
-  "Anna Zheng",
-  "Muhammadjon Obruyev",
-  "Arda Ardali",
-  "Amelia Basith",
+  "Shafin Kazi",
+  "Angelina Lee",
+  "Becky Lin",
+  "Daniel Lin",
+  "Nicky Liu",
+  "Thomas Liu",
+  "Justin Manariov",
+  "Kaylee Olguin",
+  "Jackson Peng",
   "Albatina Rahman",
-  "Stella Anderson",
-  "William Chen",
+  "Dipashak Rajak",
+  "Nihal Robi",
+  "Saatvik Saha",
+  "Alex Shao",
+  "Kiran Stanton",
+  "Andrew Tang",
+  "Sasha Trofimov",
+  "Ruby Vaca",
+  "Jayden Vallejo",
+  "Avery Wenger",
+  "Isabella Wong",
+  "Benjamin Xie",
+  "Mabel Yang",
+  "Calvin Ye",
+  "Jaedon Yassin",
+  "Owen Zeng",
+  "Anna Zheng",
+  "Eric Zheng",
+  "Kathy Zhong",
+  "Ei Zin",
 ];
 
 export default function TeamPage() {
+  // Create custom word data for each tutor with gradient colors
+  const tutorWords = React.useMemo(() => {
+    return tutors.map((name, index) => {
+      const progress = index / tutors.length;
+      const exponentialDelay = Math.pow(progress, 0.7) * 3;
+      const baseDelay = index * 0.15;
+
+      // Create gradient from white (255) to dark grey (128)
+      const waveEffect = Math.sin(progress * Math.PI * 6) * 0.5 + 0.5;
+      const brightness = 128 + (255 - 128) * waveEffect;
+
+      return {
+        text: name,
+        duration: 1.8,
+        delay: baseDelay + exponentialDelay,
+        blur: 15,
+        scale: 0.95,
+        color: `rgb(${brightness}, ${brightness}, ${brightness})`
+      };
+    });
+  }, []);
+
   return (
     <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
 
@@ -343,10 +368,9 @@ export default function TeamPage() {
 
               {/* Blur Text Animation */}
               <BlurTextAnimation
-                text={tutors.join(" ")}
+                words={tutorWords}
                 fontSize="text-2xl md:text-3xl lg:text-4xl"
                 fontFamily="font-bold"
-                textColor="text-white"
                 animationDelay={3000}
                 className="min-h-[400px]"
               />
