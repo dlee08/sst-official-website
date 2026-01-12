@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Typewriter } from "@/components/ui/typewriter";
 
 // Summer 2025 Gallery Photos
 const photos = [
@@ -55,6 +56,15 @@ const photos = [
 
 export default function Summer2025Gallery() {
   const [selectedPhoto, setSelectedPhoto] = React.useState<number | null>(null);
+  const [showUnderline, setShowUnderline] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    if (showUnderline && titleRef.current) {
+      setTitleWidth(titleRef.current.offsetWidth);
+    }
+  }, [showUnderline]);
 
   return (
     <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
@@ -67,17 +77,27 @@ export default function Summer2025Gallery() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
-            Summer
-            <br />
-            2025
+          <h1
+            ref={titleRef}
+            className="text-7xl md:text-8xl font-black tracking-tighter mb-6 pb-2 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500 inline-block overflow-visible"
+          >
+            <Typewriter
+              words={["Summer 2025"]}
+              speed={100}
+              cursor={true}
+              cursorChar="|"
+              onComplete={() => setShowUnderline(true)}
+            />
           </h1>
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-2 w-32 bg-zinc-950 dark:bg-white" />
-            <div className="h-2 w-16 bg-zinc-600 dark:bg-zinc-400" />
-            <div className="h-2 w-8 bg-zinc-400 dark:bg-zinc-600" />
-          </div>
+          {showUnderline && titleWidth > 0 && (
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: titleWidth }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-zinc-950 dark:bg-white mb-6"
+            />
+          )}
 
           <motion.p
             initial={{ opacity: 0 }}

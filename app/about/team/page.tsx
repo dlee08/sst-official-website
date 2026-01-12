@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import BlurTextAnimation from "@/components/ui/blur-text-animation";
+import { Typewriter } from "@/components/ui/typewriter";
 
 // Leadership data
 const leadership = {
@@ -48,6 +49,11 @@ const branchDirectors = {
       name: "Kalimul Kaif",
       email: "kkaif70@stuy.edu",
       photo: "/team/branch_director_kalimul_kaif.jpeg",
+    },
+    {
+      name: "Rahul Deb",
+      email: "rdeb60@stuy.edu",
+      photo: "/team/branch_director_rahul_deb.jpg",
     },
   ],
   Brooklyn: [
@@ -96,7 +102,6 @@ const branchDirectors = {
 // Tutors list for Summer 2025-26 (sorted alphabetically by last name)
 const tutors = [
   "Mustafa Abdullah",
-  "Ardian Agoes",
   "Tafheem Ahrar",
   "Tanvir Ahmed",
   "Syed Ali",
@@ -122,7 +127,6 @@ const tutors = [
   "William Gao",
   "Lawerence Hicks",
   "Shihab Hossain",
-  "Kalimul Kaif",
   "Amani Kaushal",
   "Shafin Kazi",
   "Angelina Lee",
@@ -135,9 +139,7 @@ const tutors = [
   "Jackson Peng",
   "Albatina Rahman",
   "Dipashak Rajak",
-  "Nihal Robi",
   "Saatvik Saha",
-  "Alex Shao",
   "Kiran Stanton",
   "Andrew Tang",
   "Sasha Trofimov",
@@ -157,6 +159,35 @@ const tutors = [
 ];
 
 export default function TeamPage() {
+  const [isDark, setIsDark] = React.useState(true);
+  const [showUnderline, setShowUnderline] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    // Check if dark mode is active
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (showUnderline && titleRef.current) {
+      setTitleWidth(titleRef.current.offsetWidth);
+    }
+  }, [showUnderline]);
+
   // Create custom word data for each tutor with gradient colors
   const tutorWords = React.useMemo(() => {
     return tutors.map((name, index) => {
@@ -164,9 +195,17 @@ export default function TeamPage() {
       const exponentialDelay = Math.pow(progress, 0.7) * 3;
       const baseDelay = index * 0.15;
 
-      // Create gradient from white (255) to dark grey (128)
+      // Create gradient - inverted for light mode
       const waveEffect = Math.sin(progress * Math.PI * 6) * 0.5 + 0.5;
-      const brightness = 128 + (255 - 128) * waveEffect;
+
+      let brightness;
+      if (isDark) {
+        // Dark mode: white (255) to dark grey (128)
+        brightness = 128 + (255 - 128) * waveEffect;
+      } else {
+        // Light mode: black (0) to medium grey (127) - inverted
+        brightness = 0 + 127 * waveEffect;
+      }
 
       return {
         text: name,
@@ -177,7 +216,7 @@ export default function TeamPage() {
         color: `rgb(${brightness}, ${brightness}, ${brightness})`
       };
     });
-  }, []);
+  }, [isDark]);
 
   return (
     <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
@@ -190,26 +229,27 @@ export default function TeamPage() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
-            The
-            <br />
-            Team
+          <h1
+            ref={titleRef}
+            className="text-7xl md:text-8xl font-black tracking-tighter mb-6 pb-2 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500 inline-block overflow-visible"
+          >
+            <Typewriter
+              words={["The Team"]}
+              speed={100}
+              cursor={true}
+              cursorChar="|"
+              onComplete={() => setShowUnderline(true)}
+            />
           </h1>
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-2 w-32 bg-zinc-950 dark:bg-white" />
-            <div className="h-2 w-16 bg-zinc-600 dark:bg-zinc-400" />
-            <div className="h-2 w-8 bg-zinc-400 dark:bg-zinc-600" />
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 max-w-2xl"
-          >
-            Meet the dedicated individuals behind Stuyvesant Summer Tutoring
-          </motion.p>
+          {showUnderline && titleWidth > 0 && (
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: titleWidth }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-zinc-950 dark:bg-white"
+            />
+          )}
         </motion.div>
 
         {/* President Section */}
@@ -354,9 +394,9 @@ export default function TeamPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <div className="bg-black text-white p-12 relative overflow-hidden min-h-[600px]">
+          <div className="bg-white dark:bg-black text-black dark:text-white p-12 relative overflow-hidden min-h-[600px]">
             <div className="relative">
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-white text-center">
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-black dark:text-white text-center">
                 Our Tutors
               </h2>
 
@@ -368,12 +408,6 @@ export default function TeamPage() {
                 animationDelay={3000}
                 className="min-h-[400px]"
               />
-
-              <div className="mt-12 pt-8 border-t border-white/20 text-center">
-                <p className="text-sm opacity-60">
-                  {tutors.length} dedicated tutors and counting...
-                </p>
-              </div>
             </div>
           </div>
         </motion.section>

@@ -66,7 +66,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className
       )}
     >
-      <div className="flex items-center gap-1 bg-zinc-950/80 dark:bg-zinc-950/90 border border-zinc-800/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-2xl shadow-black/20 pointer-events-auto">
+      <div className="flex items-center gap-1 bg-white/80 dark:bg-zinc-950/80 border border-zinc-200/50 dark:border-zinc-800/50 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-2xl shadow-white/20 dark:shadow-black/20 pointer-events-auto">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -86,8 +86,8 @@ export function NavBar({ items, className }: NavBarProps) {
                   onClick={() => handleTabClick(item.name, item.url)}
                   className={cn(
                     "relative cursor-pointer text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-200",
-                    "text-zinc-400 hover:text-white",
-                    isActive && "text-white"
+                    "text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white",
+                    isActive && "text-black dark:text-white"
                   )}
                 >
                   <span className="hidden md:inline relative z-10">{item.name}</span>
@@ -97,7 +97,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   {isActive && (
                     <motion.div
                       layoutId="lamp"
-                      className="absolute inset-0 w-full bg-white/10 rounded-full -z-10 border border-white/30"
+                      className="absolute inset-0 w-full bg-black/10 dark:bg-white/10 rounded-full -z-10 border border-black/30 dark:border-white/30"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -105,10 +105,10 @@ export function NavBar({ items, className }: NavBarProps) {
                         damping: 30,
                       }}
                     >
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-gradient-to-b from-white to-zinc-200 rounded-t-full shadow-lg shadow-white/50">
-                        <div className="absolute w-16 h-8 bg-white/30 rounded-full blur-xl -top-3 -left-3" />
-                        <div className="absolute w-12 h-8 bg-white/40 rounded-full blur-lg -top-2 left-0" />
-                        <div className="absolute w-6 h-6 bg-white/50 rounded-full blur-md top-0 left-2" />
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-gradient-to-b from-black to-zinc-700 dark:from-white dark:to-zinc-200 rounded-t-full shadow-lg shadow-black/50 dark:shadow-white/50">
+                        <div className="absolute w-16 h-8 bg-black/30 dark:bg-white/30 rounded-full blur-xl -top-3 -left-3" />
+                        <div className="absolute w-12 h-8 bg-black/40 dark:bg-white/40 rounded-full blur-lg -top-2 left-0" />
+                        <div className="absolute w-6 h-6 bg-black/50 dark:bg-white/50 rounded-full blur-md top-0 left-2" />
                       </div>
                     </motion.div>
                   )}
@@ -117,9 +117,9 @@ export function NavBar({ items, className }: NavBarProps) {
                 <button
                   className={cn(
                     "relative cursor-pointer text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-200 flex items-center gap-1.5",
-                    "text-zinc-400 hover:text-white",
-                    isHovered && "text-white",
-                    isActive && "text-white"
+                    "text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white",
+                    isHovered && "text-black dark:text-white",
+                    isActive && "text-black dark:text-white"
                   )}
                 >
                   <span className="hidden md:inline relative z-10">{item.name}</span>
@@ -137,7 +137,7 @@ export function NavBar({ items, className }: NavBarProps) {
                   {isActive && (
                     <motion.div
                       layoutId="lamp"
-                      className="absolute inset-0 w-full bg-white/10 rounded-full -z-10 border border-white/30"
+                      className="absolute inset-0 w-full bg-black/10 dark:bg-white/10 rounded-full -z-10 border border-black/30 dark:border-white/30"
                       initial={false}
                       transition={{
                         type: "spring",
@@ -145,10 +145,10 @@ export function NavBar({ items, className }: NavBarProps) {
                         damping: 30,
                       }}
                     >
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-gradient-to-b from-white to-zinc-200 rounded-t-full shadow-lg shadow-white/50">
-                        <div className="absolute w-16 h-8 bg-white/30 rounded-full blur-xl -top-3 -left-3" />
-                        <div className="absolute w-12 h-8 bg-white/40 rounded-full blur-lg -top-2 left-0" />
-                        <div className="absolute w-6 h-6 bg-white/50 rounded-full blur-md top-0 left-2" />
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-10 h-1.5 bg-gradient-to-b from-black to-zinc-700 dark:from-white dark:to-zinc-200 rounded-t-full shadow-lg shadow-black/50 dark:shadow-white/50">
+                        <div className="absolute w-16 h-8 bg-black/30 dark:bg-white/30 rounded-full blur-xl -top-3 -left-3" />
+                        <div className="absolute w-12 h-8 bg-black/40 dark:bg-white/40 rounded-full blur-lg -top-2 left-0" />
+                        <div className="absolute w-6 h-6 bg-black/50 dark:bg-white/50 rounded-full blur-md top-0 left-2" />
                       </div>
                     </motion.div>
                   )}
@@ -165,7 +165,7 @@ export function NavBar({ items, className }: NavBarProps) {
                     transition={{ duration: 0.15, ease: "easeOut" }}
                     className="absolute top-full mt-3 left-1/2 -translate-x-1/2 min-w-[280px] pointer-events-auto"
                   >
-                    <div className="bg-zinc-950/95 backdrop-blur-xl border border-zinc-800/50 rounded-2xl shadow-2xl shadow-black/40 overflow-hidden">
+                    <div className="bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl shadow-2xl shadow-white/40 dark:shadow-black/40 overflow-hidden">
                       <div className="p-2">
                         {item.subItems?.map((subItem, idx) => {
                           return (
@@ -176,12 +176,12 @@ export function NavBar({ items, className }: NavBarProps) {
                                 handleTabClick(item.name, subItem.href, true)
                                 setHoveredTab(null)
                               }}
-                              className="block p-4 rounded-xl hover:bg-zinc-900/50 transition-all duration-150 group border border-transparent hover:border-zinc-800/50"
+                              className="block p-4 rounded-xl hover:bg-zinc-100/50 dark:hover:bg-zinc-900/50 transition-all duration-150 group border border-transparent hover:border-zinc-300/50 dark:hover:border-zinc-800/50"
                             >
-                              <div className="text-sm font-bold text-zinc-200 group-hover:text-white transition-colors mb-1">
+                              <div className="text-sm font-bold text-zinc-800 dark:text-zinc-200 group-hover:text-black dark:group-hover:text-white transition-colors mb-1">
                                 {subItem.title}
                               </div>
-                              <p className="text-xs text-zinc-500 leading-relaxed">
+                              <p className="text-xs text-zinc-500 dark:text-zinc-500 leading-relaxed">
                                 {subItem.description}
                               </p>
                             </Link>
@@ -190,7 +190,7 @@ export function NavBar({ items, className }: NavBarProps) {
                       </div>
                     </div>
                     {/* Arrow pointer */}
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-zinc-950/95 border-l border-t border-zinc-800/50 rotate-45" />
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white/95 dark:bg-zinc-950/95 border-l border-t border-zinc-200/50 dark:border-zinc-800/50 rotate-45" />
                   </motion.div>
                 )}
               </AnimatePresence>

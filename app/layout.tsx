@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Domine } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LanguageProvider } from "@/contexts/language-context";
@@ -8,19 +8,15 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { StructuredData } from "@/components/structured-data";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const domine = Domine({
+  variable: "--font-domine",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Stuyvesant Summer Tutoring | Free K-9 Tutoring NYC",
+    default: "Stuyvesant Summer Tutoring (SST) Official Page",
     template: "%s | Stuyvesant Summer Tutoring"
   },
   description: "Free K-9 ELA, Math & Science tutoring across NYC. Stuyvesant Summer Tutoring connects volunteer tutors with students at libraries in Manhattan, Queens, Brooklyn, and Staten Island. 96% satisfaction rating.",
@@ -53,13 +49,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://stuyvesantsummertutoring.org',
-    title: 'Stuyvesant Summer Tutoring | Free K-9 Tutoring NYC',
+    title: 'Stuyvesant Summer Tutoring (SST) Official Page',
     description: 'Free K-9 ELA, Math & Science tutoring across NYC. 96% satisfaction rating. Volunteer tutors from Stuyvesant High School serving students at libraries citywide.',
     siteName: 'Stuyvesant Summer Tutoring',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stuyvesant Summer Tutoring | Free K-9 Tutoring NYC',
+    title: 'Stuyvesant Summer Tutoring (SST) Official Page',
     description: 'Free K-9 ELA, Math & Science tutoring across NYC. 96% satisfaction rating.',
   },
   robots: {
@@ -89,7 +85,7 @@ export default function RootLayout({
         <StructuredData />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${domine.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"

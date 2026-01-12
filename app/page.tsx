@@ -23,22 +23,24 @@ export default function Home() {
       >
         <SparklesText
           text={t("title")}
-          className="text-3xl md:text-7xl font-bold text-black dark:text-white text-center"
+          className="text-[4rem] md:text-[11rem] font-bold text-black dark:text-white text-center leading-tight"
           colors={{ first: "#3b82f6", second: "#a78bfa" }}
           sparklesCount={15}
         />
-        <div className="font-extralight text-base md:text-4xl text-neutral-700 dark:text-neutral-200 py-4 text-center">
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "600px" }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+          className="h-1 bg-gradient-to-r from-transparent via-black dark:via-white to-transparent max-w-full"
+        />
+        <div className="font-extralight text-xl md:text-6xl text-neutral-700 dark:text-neutral-200 py-4 text-center">
           <Typewriter
-            text={[
-              "Free K-9 ELA, Math & Science Tutoring",
-              "Building futures, one student at a time",
-              "Join us in making a difference"
-            ]}
+            text={t("captions", { returnObjects: true }) as string[]}
             speed={80}
             deleteSpeed={40}
             delay={2000}
             loop={true}
-            className="font-extralight text-base md:text-4xl text-neutral-700 dark:text-neutral-200"
+            className="font-extralight text-xl md:text-6xl text-neutral-700 dark:text-neutral-200"
           />
         </div>
       </motion.div>

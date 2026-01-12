@@ -4,11 +4,21 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Timeline } from "@/components/ui/timeline";
+import { Typewriter } from "@/components/ui/typewriter";
 
 import { useTranslation } from "react-i18next";
 
 export default function ImpactPage() {
   const { t } = useTranslation("common");
+  const [showUnderline, setShowUnderline] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    if (showUnderline && titleRef.current) {
+      setTitleWidth(titleRef.current.offsetWidth);
+    }
+  }, [showUnderline]);
 
   const timelineData = [
     {
@@ -81,7 +91,7 @@ export default function ImpactPage() {
       title: "2024",
       content: (
         <div className="space-y-6">
-          <div className="bg-zinc-100 dark:bg-zinc-800 p-8">
+          <div className="bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-white p-8">
             <h3 className="text-4xl font-black tracking-tighter mb-6 text-zinc-950 dark:text-white">
               {t("impact.timeline.2024.title")}
             </h3>
@@ -113,7 +123,7 @@ export default function ImpactPage() {
               </div>
             </div>
 
-            <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+            <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
               {t("impact.timeline.2024.description")}
             </p>
           </div>
@@ -124,14 +134,14 @@ export default function ImpactPage() {
       title: "2015-2023",
       content: (
         <div className="space-y-6">
-          <div className="bg-white dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-700 p-8">
-            <h3 className="text-3xl font-black tracking-tighter mb-4 text-zinc-950 dark:text-white">
+          <div className="bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-white p-8">
+            <h3 className="text-4xl font-black tracking-tighter mb-6 text-zinc-950 dark:text-white">
               {t("impact.timeline.earlier.title")}
             </h3>
-            <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300 mb-4">
+            <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 mb-6">
               {t("impact.timeline.earlier.description")}
             </p>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-500 italic">
+            <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-500 italic">
               {t("impact.timeline.earlier.disclaimer")}
             </p>
           </div>
@@ -150,26 +160,27 @@ export default function ImpactPage() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
-            Our
-            <br />
-            Impact
+          <h1
+            ref={titleRef}
+            className="text-7xl md:text-8xl font-black tracking-tighter mb-6 pb-2 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500 inline-block overflow-visible"
+          >
+            <Typewriter
+              words={["Our Impact"]}
+              speed={100}
+              cursor={true}
+              cursorChar="|"
+              onComplete={() => setShowUnderline(true)}
+            />
           </h1>
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-2 w-32 bg-zinc-950 dark:bg-white" />
-            <div className="h-2 w-16 bg-zinc-600 dark:bg-zinc-400" />
-            <div className="h-2 w-8 bg-zinc-400 dark:bg-zinc-600" />
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 max-w-2xl"
-          >
-            Nearly a decade of empowering students across New York City
-          </motion.p>
+          {showUnderline && titleWidth > 0 && (
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: titleWidth }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-zinc-950 dark:bg-white"
+            />
+          )}
         </motion.div>
 
         {/* Timeline */}

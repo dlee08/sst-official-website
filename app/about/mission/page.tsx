@@ -5,8 +5,19 @@ import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Award, Users, MapPin, Heart, TrendingUp, Clock } from "lucide-react";
 import Link from "next/link";
+import { Typewriter } from "@/components/ui/typewriter";
 
 export default function MissionPage() {
+  const [showUnderline, setShowUnderline] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    if (showUnderline && titleRef.current) {
+      setTitleWidth(titleRef.current.offsetWidth);
+    }
+  }, [showUnderline]);
+
   return (
     <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
       <div className="max-w-7xl mx-auto relative">
@@ -17,26 +28,27 @@ export default function MissionPage() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
-            Our
-            <br />
-            Mission
+          <h1
+            ref={titleRef}
+            className="text-7xl md:text-8xl font-black tracking-tighter mb-6 pb-2 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500 inline-block overflow-visible"
+          >
+            <Typewriter
+              words={["Our Mission"]}
+              speed={100}
+              cursor={true}
+              cursorChar="|"
+              onComplete={() => setShowUnderline(true)}
+            />
           </h1>
 
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-2 w-32 bg-zinc-950 dark:bg-white" />
-            <div className="h-2 w-16 bg-zinc-600 dark:bg-zinc-400" />
-            <div className="h-2 w-8 bg-zinc-400 dark:bg-zinc-600" />
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 max-w-2xl"
-          >
-            Making quality education accessible and inclusive to all
-          </motion.p>
+          {showUnderline && titleWidth > 0 && (
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: titleWidth }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-zinc-950 dark:bg-white"
+            />
+          )}
         </motion.div>
 
         {/* Our History */}

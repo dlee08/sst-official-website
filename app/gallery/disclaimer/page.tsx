@@ -3,8 +3,19 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { Typewriter } from "@/components/ui/typewriter";
 
 export default function DisclaimerPage() {
+  const [showUnderline, setShowUnderline] = React.useState(false);
+  const titleRef = React.useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    if (showUnderline && titleRef.current) {
+      setTitleWidth(titleRef.current.offsetWidth);
+    }
+  }, [showUnderline]);
+
   return (
     <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
 
@@ -14,14 +25,27 @@ export default function DisclaimerPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Bold, distinctive header */}
-          <h1 className="text-6xl md:text-7xl font-black tracking-tighter mb-4 leading-[0.9] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
-            Gallery
-            <br />
-            Disclaimer
+          <h1
+            ref={titleRef}
+            className="text-6xl md:text-7xl font-black tracking-tighter mb-4 pb-2 leading-[0.9] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500 inline-block overflow-visible"
+          >
+            <Typewriter
+              words={["Gallery Disclaimer"]}
+              speed={100}
+              cursor={true}
+              cursorChar="|"
+              onComplete={() => setShowUnderline(true)}
+            />
           </h1>
 
-          <div className="h-1 w-24 bg-zinc-950 dark:bg-white mb-12" />
+          {showUnderline && titleWidth > 0 && (
+            <motion.div
+              initial={{ width: 0 }}
+              animate={{ width: titleWidth }}
+              transition={{ duration: 0.5 }}
+              className="h-1 bg-zinc-950 dark:bg-white mb-12"
+            />
+          )}
         </motion.div>
 
         <motion.div
