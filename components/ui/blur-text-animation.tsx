@@ -42,34 +42,39 @@ export default function BlurTextAnimation({
     return splitWords.map((word, index) => {
       const progress = index / totalWords;
 
-      // Increased delays to ensure all names are animated
-      const exponentialDelay = Math.pow(progress, 0.7) * 3; // Increased from 0.5 to 3
-
-      const baseDelay = index * 0.15; // Increased from 0.06 to 0.15
-
-      const microVariation = (Math.random() - 0.5) * 0.08; // Slightly increased variation
+      // Deterministic delays - no randomness for consistency
+      const exponentialDelay = Math.pow(progress, 0.7) * 3;
+      const baseDelay = index * 0.15;
 
       return {
         text: word,
-        duration: 1.8 + Math.cos(index * 0.3) * 0.2, // Slightly faster individual animations
-        delay: baseDelay + exponentialDelay + microVariation,
-        blur: 12 + Math.floor(Math.random() * 8),
-        scale: 0.9 + Math.sin(index * 0.2) * 0.05
+        duration: 1.8,
+        delay: baseDelay + exponentialDelay,
+        blur: 15,
+        scale: 0.95
       };
     });
   }, [text, words]);
 
   useEffect(() => {
     const startAnimation = () => {
+      // Clear any existing timeouts
+      if (animationTimeoutRef.current) clearTimeout(animationTimeoutRef.current);
+      if (resetTimeoutRef.current) clearTimeout(resetTimeoutRef.current);
+
       setTimeout(() => {
         setIsAnimating(true);
       }, 200);
 
+      // Calculate the maximum time needed for all words
       let maxTime = 0;
       textWords.forEach(word => {
         const totalTime = word.delay + word.duration;
         maxTime = Math.max(maxTime, totalTime);
       });
+
+      // Add extra buffer time to ensure all animations complete
+      const bufferTime = 2; // 2 seconds buffer
 
       animationTimeoutRef.current = setTimeout(() => {
         setIsAnimating(false);
@@ -77,7 +82,7 @@ export default function BlurTextAnimation({
         resetTimeoutRef.current = setTimeout(() => {
           startAnimation();
         }, animationDelay);
-      }, (maxTime + 1) * 1000);
+      }, (maxTime + bufferTime) * 1000);
     };
 
     startAnimation();
