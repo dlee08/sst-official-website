@@ -85,7 +85,7 @@ export default function Summer2025Gallery() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 max-w-2xl mb-4"
           >
-            Memories from our Summer 2025 tutoring program
+            Some memories from our Summer 2025 tutoring program
           </motion.p>
 
           <motion.div

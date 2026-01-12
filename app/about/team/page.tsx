@@ -4,19 +4,20 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import BlurTextAnimation from "@/components/ui/blur-text-animation";
 
 // Leadership data
 const leadership = {
   president: {
     name: "David Lee",
     email: "dlee60@stuy.edu",
-    bio: "Leading Stuyvesant Summer Tutoring with vision and dedication to making quality education accessible to all students across NYC.",
+    bio: "Hi everyone! My name's David (he/him), and I'm currently a senior at Stuy. I joined SST during my freshman year summer, and I've been a part of this amazing community since! I live in Elmhurst, Queens, so Flushing Library is my go-to library for SST sessions, but I regularly take the train to Borough Park, Brooklyn, since a few of my friends are tutoring! In my free time, I like to code (competitively or for machine learning / AI), study biology (microbiology & genetics), and watch sports like basketball (go Knicks!) and Formula 1 (vai, Ferrari!). See you around!",
     photo: "/team/president_david_lee.JPG",
   },
   vicePresident: {
     name: "Tiffany Xu",
     email: "txu70@stuy.edu",
-    bio: "Supporting our mission to provide free, quality tutoring and coordinating with branch directors to ensure smooth operations across all boroughs.",
+    bio: "Hello everyone! My name is Tiffany, and I'm currently a junior at Stuy. I joined SST also during my freshman year summer, and I'm still going strong. I live in Flushing, Queens, so Flushing and McGoldrick are also my go-to library for SST sessions, but I also commute to SNFL, Manhattan to help out! See you around!",
     photo: "/team/vice_president_tiffany_xu.jpg",
   },
 };
@@ -334,30 +335,23 @@ export default function TeamPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <div className="bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 p-12 relative overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-64 h-64 bg-zinc-800 dark:bg-zinc-200 opacity-20 -mr-32 -mb-32 rotate-45" />
-
+          <div className="bg-black text-white p-12 relative overflow-hidden min-h-[600px]">
             <div className="relative">
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400 dark:from-zinc-950 dark:to-zinc-600">
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-white text-center">
                 Our Tutors
               </h2>
 
-              {/* Big typographic list */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
-                {tutors.map((tutor, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.9 + index * 0.02 }}
-                    className="text-xl font-bold tracking-tight hover:opacity-70 transition-opacity"
-                  >
-                    {tutor}
-                  </motion.div>
-                ))}
-              </div>
+              {/* Blur Text Animation */}
+              <BlurTextAnimation
+                text={tutors.join(" ")}
+                fontSize="text-2xl md:text-3xl lg:text-4xl"
+                fontFamily="font-bold"
+                textColor="text-white"
+                animationDelay={5000}
+                className="min-h-[400px]"
+              />
 
-              <div className="mt-12 pt-8 border-t border-white/20 dark:border-zinc-950/20">
+              <div className="mt-12 pt-8 border-t border-white/20 text-center">
                 <p className="text-sm opacity-60">
                   {tutors.length} dedicated tutors and counting...
                 </p>
