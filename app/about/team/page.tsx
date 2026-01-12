@@ -396,9 +396,17 @@ export default function TeamPage() {
         >
           <div className="bg-black border-2 border-zinc-400 text-white p-12 relative overflow-hidden min-h-[600px]">
             <div className="relative">
-              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 text-white text-center">
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-8 text-white text-center">
                 Thanks to Our Summer '25 Tutors
               </h2>
+
+              {/* Border */}
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="h-1 bg-zinc-400 mx-auto mb-12"
+              />
 
               {/* Blur Text Animation */}
               <BlurTextAnimation
