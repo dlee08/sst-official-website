@@ -26,19 +26,9 @@ const leadership = {
 const branchDirectors = {
   Queens: [
     {
-      name: "Alex Shao",
-      email: "ashao60@stuy.edu",
-      photo: "/team/default_avatar.png",
-    },
-    {
-      name: "Cody Wong",
-      email: "cwong60@stuy.edu",
-      photo: "/team/default_avatar.png",
-    },
-    {
-      name: "Nihal Robi",
-      email: "nrobi60@stuy.edu",
-      photo: "/team/branch_director_nihal_robi.jpg",
+      name: "Rahul Deb",
+      email: "rdeb60@stuy.edu",
+      photo: "/team/branch_director_rahul_deb.jpg",
     },
     {
       name: "Ivan Huang",
@@ -51,16 +41,26 @@ const branchDirectors = {
       photo: "/team/branch_director_kalimul_kaif.jpeg",
     },
     {
-      name: "Rahul Deb",
-      email: "rdeb60@stuy.edu",
-      photo: "/team/branch_director_rahul_deb.jpg",
+      name: "Nihal Robi",
+      email: "nrobi60@stuy.edu",
+      photo: "/team/branch_director_nihal_robi.jpg",
+    },
+    {
+      name: "Alex Shao",
+      email: "ashao60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Cody Wong",
+      email: "cwong60@stuy.edu",
+      photo: "/team/default_avatar.png",
     },
   ],
   Brooklyn: [
     {
-      name: "Sofia Pisareva",
-      email: "spisareva60@stuy.edu",
-      photo: "/team/branch_director_sofia_pisareva.jpeg",
+      name: "Ardian Agoes",
+      email: "aagoes60@stuy.edu",
+      photo: "/team/branch_director_ardian_agoes.jpg",
     },
     {
       name: "Belal Hasan",
@@ -68,20 +68,20 @@ const branchDirectors = {
       photo: "/team/default_avatar.png",
     },
     {
-      name: "Ardian Agoes",
-      email: "aagoes60@stuy.edu",
-      photo: "/team/branch_director_ardian_agoes.jpg",
+      name: "Sofia Pisareva",
+      email: "spisareva60@stuy.edu",
+      photo: "/team/branch_director_sofia_pisareva.jpeg",
     },
   ],
   Manhattan: [
     {
-      name: "Hugo Kudera",
-      email: "hkudera60@stuy.edu",
+      name: "Justin Codner",
+      email: "jcodner60@stuy.edu",
       photo: "/team/default_avatar.png",
     },
     {
-      name: "Justin Codner",
-      email: "jcodner60@stuy.edu",
+      name: "Hugo Kudera",
+      email: "hkudera60@stuy.edu",
       photo: "/team/default_avatar.png",
     },
   ],
