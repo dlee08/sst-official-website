@@ -1,0 +1,113 @@
+{
+  "title": "Stuyvesant Summer Tutoring",
+  "subtitle": "A Free, K-9 ELA, Math, & Science Non-Profit Tutoring Organization based from Stuyvesant High School, New York City",
+  "cta": "Get Started",
+
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "apply": "Apply"
+  },
+
+  "about": {
+    "title": "About Us",
+    "subtitle": "Stuyvesant Summer Tutoring is dedicated to providing free, quality education to K-9 students in ELA and Math.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Learn about what drives us forward"
+    },
+    "team": {
+      "title": "The Team",
+      "description": "Meet the people behind SST"
+    },
+    "impact": {
+      "title": "Our Impact",
+      "description": "See the difference we're making"
+    }
+  },
+
+  "impact": {
+    "timeline": {
+      "2025": {
+        "badge": "CURRENT YEAR",
+        "title": "Record-Breaking Impact",
+        "stats": {
+          "tutors": "Dedicated Tutors",
+          "students": "Students Served",
+          "hours": "Volunteer Hours",
+          "libraries": "NYC Libraries",
+          "satisfaction": "Student Satisfaction Rating"
+        },
+        "description": "Our most successful summer yet, with unprecedented growth across all metrics. The 96% satisfaction rating reflects our commitment to quality, personalized tutoring that truly makes a difference in students' lives."
+      },
+      "2024": {
+        "title": "Expanding Our Reach",
+        "stats": {
+          "tutors": "Tutors",
+          "tutees": "Tutees",
+          "hours": "Volunteer Hours"
+        },
+        "description": "Continued growth with a 25% increase in tutors and expanding to new library branches across all five boroughs. Our proven model of peer-to-peer tutoring gained recognition from NYC educators and community leaders."
+      },
+      "earlier": {
+        "title": "Our Journey Begins",
+        "description": "SST was founded by Stuyvesant students passionate about giving back to their community. From our humble beginnings with a handful of tutors at one library branch, we've grown into a city-wide program serving hundreds of students. Through pandemic challenges and beyond, we've remained committed to providing free, quality education to K-9 students across all five boroughs.",
+        "disclaimer": "Note: As this website was recently developed, detailed statistics from earlier years are not currently available. We apologize for any inconvenience. Our commitment to transparency means we're working to compile this historical data for future reference."
+      }
+    }
+  },
+
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Explore our collection of memories and moments from our tutoring sessions.",
+    "summer2025": {
+      "title": "Summer 2025",
+      "description": "Photos and highlights from Summer 2025"
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "description": "Important information about our gallery"
+    }
+  },
+
+  "apply": {
+    "title": "JOIN US",
+    "subtitle": "Become a tutor and help K-9 students excel in ELA & Math.",
+    "subtitle2": "Make an impact. Gain experience. Build community.",
+    "getStarted": "Get Started",
+    "tutor": {
+      "title": "Apply as a Tutor",
+      "description": "Join our team as a volunteer tutor"
+    },
+    "tutee": {
+      "title": "Sign up as a Tutee",
+      "description": "Register to receive free tutoring"
+    },
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "grade": "Preferred Grade Level",
+      "subjects": "Subject(s) to Teach",
+      "availability": "Availability",
+      "availabilityPlaceholder": "e.g., Weekdays 3-6pm, Weekends mornings",
+      "experience": "Teaching/Tutoring Experience",
+      "experiencePlaceholder": "Tell us about your experience (volunteer work, peer tutoring, etc.)",
+      "motivation": "Why do you want to join SST?",
+      "motivationPlaceholder": "What motivates you to become a tutor with us?",
+      "submit": "SUBMIT APPLICATION",
+      "confirmation": "We'll review your application and get back to you within 3-5 business days."
+    }
+  },
+
+  "footer": {
+    "address": "345 Chambers St, Manhattan, NY 10282",
+    "copyright": "© Stuyvesant High School 2026",
+    "credits": "Credits",
+    "development": "Website Development Lead: David Lee"
+  }
+}

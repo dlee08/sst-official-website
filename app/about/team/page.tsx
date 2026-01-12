@@ -1,0 +1,371 @@
+"use client";
+
+import * as React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { AuroraBackground } from "@/components/ui/aurora-background";
+
+// Leadership data
+const leadership = {
+  president: {
+    name: "David Lee",
+    email: "dlee60@stuy.edu",
+    bio: "Leading Stuyvesant Summer Tutoring with vision and dedication to making quality education accessible to all students across NYC.",
+    photo: "/team/president_david_lee.JPG",
+  },
+  vicePresident: {
+    name: "Tiffany Xu",
+    email: "txu70@stuy.edu",
+    bio: "Supporting our mission to provide free, quality tutoring and coordinating with branch directors to ensure smooth operations across all boroughs.",
+    photo: "/team/vice_president_tiffany_xu.jpg",
+  },
+};
+
+const branchDirectors = {
+  Queens: [
+    {
+      name: "Rahul Deb",
+      email: "rdeb60@stuy.edu",
+      photo: "/team/branch_director_rahul_deb.jpg",
+    },
+    {
+      name: "Alex Shao",
+      email: "ashao60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Cody Wong",
+      email: "cwong60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Nihal Robi",
+      email: "nrobi60@stuy.edu",
+      photo: "/team/branch_director_nihal_robi.jpg",
+    },
+    {
+      name: "Ivan Huang",
+      email: "ihuang70@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Kalimul Kaif",
+      email: "kkaif70@stuy.edu",
+      photo: "/team/branch_director_kalimul_kaif.jpeg",
+    },
+  ],
+  Brooklyn: [
+    {
+      name: "Sofia Pisareva",
+      email: "spisareva60@stuy.edu",
+      photo: "/team/branch_director_sofia_pisareva.jpeg",
+    },
+    {
+      name: "Belal Hasan",
+      email: "bhasan60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Ardian Agoes",
+      email: "aagoes60@stuy.edu",
+      photo: "/team/branch_director_ardian_agoes.jpg",
+    },
+  ],
+  Manhattan: [
+    {
+      name: "Hugo Kudera",
+      email: "hkudera60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+    {
+      name: "Justin Codner",
+      email: "jcodner60@stuy.edu",
+      photo: "/team/default_avatar.png",
+    },
+  ],
+  "Staten Island": [
+    {
+      name: "Alexandru Cimpoiesu",
+      email: "acimpoiesu60@stuy.edu",
+      photo: "/team/branch_director_alexandru_cimpoiesu.png",
+    },
+    {
+      name: "Alvin Lau",
+      email: "alau60@stuy.edu",
+      photo: "/team/branch_director_alvin_lau.png",
+    },
+  ],
+};
+
+// Tutors list for Summer 2025-26
+const tutors = [
+  "Sandipta Barai",
+  "Cody Cai",
+  "Benjamin Xie",
+  "Isabella Wong",
+  "Shafin Kazi",
+  "Christina Chen",
+  "Ikenna Chukwu",
+  "Eric Zheng",
+  "Alex Shao",
+  "Jason Chan",
+  "Tanvir Ahmed",
+  "Ruby Vaca",
+  "Angelina Lee",
+  "Becky Lin",
+  "Efim Bensman",
+  "Jayden Vallejo",
+  "Saatvik Saha",
+  "Tahmid Azmir",
+  "Owen Zeng",
+  "Leyi Chen",
+  "Daniel Lin",
+  "Calvin Ye",
+  "Mustafa Abdullah",
+  "Nicky Liu",
+  "Jackson Peng",
+  "Mabel Yang",
+  "Alma Dream Esguerra",
+  "Yash Balkaran",
+  "Kaylee Olguin",
+  "Eric Chen",
+  "Lawerence Hicks",
+  "Shihab Hossain",
+  "Kiran Stanton",
+  "Juan Ochoa Bravo",
+  "Tafheem Ahrar",
+  "Sabrina Gao",
+  "Thomas Liu",
+  "Faheem Bhuiyan",
+  "Syed Ali",
+  "Avery Wenger",
+  "Dipashak Rajak",
+  "William Gao",
+  "Ei Zin",
+  "Justin Manariov",
+  "Andrew Tang",
+  "Jennifer Chen",
+  "Sasha Trofimov",
+  "Kathy Zhong",
+  "Jaedon Yassin",
+  "Amani Kaushal",
+  "Anna Zheng",
+  "Muhammadjon Obruyev",
+  "Arda Ardali",
+  "Amelia Basith",
+  "Albatina Rahman",
+  "Stella Anderson",
+  "William Chen",
+];
+
+export default function TeamPage() {
+  return (
+    <AuroraBackground className="!h-auto min-h-screen !items-start !justify-start pt-32 pb-20 px-6" showRadialGradient={false}>
+
+      <div className="max-w-7xl mx-auto relative">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-20"
+        >
+          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-6 leading-[0.85] bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
+            The
+            <br />
+            Team
+          </h1>
+
+          <div className="flex items-center gap-4 mb-6">
+            <div className="h-2 w-32 bg-zinc-950 dark:bg-white" />
+            <div className="h-2 w-16 bg-zinc-600 dark:bg-zinc-400" />
+            <div className="h-2 w-8 bg-zinc-400 dark:bg-zinc-600" />
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 max-w-2xl"
+          >
+            Meet the dedicated individuals behind Stuyvesant Summer Tutoring
+          </motion.p>
+        </motion.div>
+
+        {/* President Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-24"
+        >
+          <div className="bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 p-12 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-48 h-48 bg-zinc-800 dark:bg-zinc-200 opacity-30 -ml-24 -mt-24 rotate-45" />
+
+            <div className="grid md:grid-cols-[300px_1fr] gap-12 items-start relative">
+              {/* Photo */}
+              <div className="aspect-square bg-zinc-800 dark:bg-zinc-200 relative overflow-hidden">
+                <Image
+                  src={leadership.president.photo}
+                  alt={leadership.president.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Info */}
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-bold tracking-widest mb-2 opacity-60">
+                    PRESIDENT
+                  </p>
+                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400 dark:from-zinc-950 dark:to-zinc-600">
+                    {leadership.president.name}
+                  </h2>
+                  <p className="text-base font-medium opacity-70 mb-6">
+                    {leadership.president.email}
+                  </p>
+                </div>
+                <p className="text-lg leading-relaxed opacity-90">
+                  {leadership.president.bio}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Vice President Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-24"
+        >
+          <div className="bg-white dark:bg-zinc-900 border-2 border-zinc-950 dark:border-white p-12">
+            <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start">
+              {/* Info */}
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-bold tracking-widest mb-2 text-zinc-600 dark:text-zinc-400">
+                    VICE PRESIDENT
+                  </p>
+                  <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-none mb-3 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                    {leadership.vicePresident.name}
+                  </h2>
+                  <p className="text-base font-medium text-zinc-600 dark:text-zinc-500 mb-6">
+                    {leadership.vicePresident.email}
+                  </p>
+                </div>
+                <p className="text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+                  {leadership.vicePresident.bio}
+                </p>
+              </div>
+
+              {/* Photo */}
+              <div className="aspect-square bg-zinc-200 dark:bg-zinc-800 relative overflow-hidden order-first md:order-last">
+                <Image
+                  src={leadership.vicePresident.photo}
+                  alt={leadership.vicePresident.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* Branch Directors */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mb-24"
+        >
+          <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-500 dark:from-white dark:to-zinc-500">
+            Branch Directors
+          </h2>
+
+          <div className="space-y-12">
+            {Object.entries(branchDirectors).map(([borough, directors], boroughIndex) => (
+              <motion.div
+                key={borough}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + boroughIndex * 0.1 }}
+                className="border-l-4 border-zinc-950 dark:border-white pl-8"
+              >
+                <h3 className="text-3xl font-black tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                  {borough}
+                </h3>
+
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {directors.map((director, index) => (
+                    <div key={index} className="group">
+                      {/* Photo */}
+                      <div className="aspect-square bg-gradient-to-br from-zinc-200 to-zinc-400 dark:from-zinc-700 dark:to-zinc-900 relative overflow-hidden mb-4 transition-transform group-hover:scale-[1.02]">
+                        <Image
+                          src={director.photo}
+                          alt={director.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+
+                      {/* Info */}
+                      <div className="space-y-2">
+                        <h4 className="text-2xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-zinc-950 to-zinc-600 dark:from-white dark:to-zinc-400">
+                          {director.name}
+                        </h4>
+                        <p className="text-sm font-medium text-zinc-600 dark:text-zinc-500">
+                          {director.email}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Tutors Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <div className="bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 p-12 relative overflow-hidden">
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-zinc-800 dark:bg-zinc-200 opacity-20 -mr-32 -mb-32 rotate-45" />
+
+            <div className="relative">
+              <h2 className="text-5xl md:text-6xl font-black tracking-tighter mb-12 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-400 dark:from-zinc-950 dark:to-zinc-600">
+                Our Tutors
+              </h2>
+
+              {/* Big typographic list */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4">
+                {tutors.map((tutor, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.9 + index * 0.02 }}
+                    className="text-xl font-bold tracking-tight hover:opacity-70 transition-opacity"
+                  >
+                    {tutor}
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-white/20 dark:border-zinc-950/20">
+                <p className="text-sm opacity-60">
+                  {tutors.length} dedicated tutors and counting...
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+      </div>
+    </AuroraBackground>
+  );
+}

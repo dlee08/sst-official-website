@@ -1,0 +1,113 @@
+{
+  "title": "史岱文森暑期辅导",
+  "subtitle": "免费的 K-9 英语、数学与科学非营利性辅导组织，来自纽约市史岱文森高中",
+  "cta": "开始",
+
+  "nav": {
+    "home": "主页",
+    "about": "关于我们",
+    "gallery": "画廊",
+    "apply": "申请"
+  },
+
+  "about": {
+    "title": "关于我们",
+    "subtitle": "史岱文森暑期辅导致力于为 K-9 学生提供免费优质的英语和数学教育。",
+    "mission": {
+      "title": "我们的使命",
+      "description": "了解我们前进的动力"
+    },
+    "team": {
+      "title": "团队",
+      "description": "认识 SST 背后的人"
+    },
+    "impact": {
+      "title": "我们的影响",
+      "description": "看看我们正在做出的改变"
+    }
+  },
+
+  "impact": {
+    "timeline": {
+      "2025": {
+        "badge": "当前年份",
+        "title": "破纪录的影响力",
+        "stats": {
+          "tutors": "敬业的导师",
+          "students": "服务的学生",
+          "hours": "志愿者小时",
+          "libraries": "纽约市图书馆",
+          "satisfaction": "学生满意度"
+        },
+        "description": "这是我们迄今为止最成功的夏季，所有指标都实现了前所未有的增长。96% 的满意度反映了我们对优质个性化辅导的承诺，这真正改变了学生的生活。"
+      },
+      "2024": {
+        "title": "扩大我们的影响范围",
+        "stats": {
+          "tutors": "导师",
+          "tutees": "学员",
+          "hours": "志愿者小时"
+        },
+        "description": "持续增长，导师增加了 25%，并扩展到所有五个行政区的新图书馆分馆。我们经过验证的同伴辅导模式得到了纽约市教育工作者和社区领导的认可。"
+      },
+      "earlier": {
+        "title": "我们的旅程开始",
+        "description": "SST 由热衷于回馈社区的史岱文森学生创立。从我们在一个图书馆分馆只有少数导师的卑微开端，我们已经发展成为一个服务数百名学生的全市性项目。经历疫情挑战及以后，我们始终致力于为所有五个行政区的 K-9 学生提供免费优质的教育。",
+        "disclaimer": "注意：由于此网站最近才开发完成，目前尚无早期年份的详细统计数据。我们对造成的不便表示歉意。我们对透明度的承诺意味着我们正在努力汇编这些历史数据以供将来参考。"
+      }
+    }
+  },
+
+  "gallery": {
+    "title": "画廊",
+    "subtitle": "探索我们辅导课程中的回忆和时刻。",
+    "summer2025": {
+      "title": "2025 年夏季",
+      "description": "2025 年夏季的照片和精彩瞬间"
+    },
+    "disclaimer": {
+      "title": "免责声明",
+      "description": "关于我们画廊的重要信息"
+    }
+  },
+
+  "apply": {
+    "title": "加入我们",
+    "subtitle": "成为导师，帮助 K-9 学生在英语和数学方面取得优异成绩。",
+    "subtitle2": "产生影响。获得经验。建立社区。",
+    "getStarted": "开始",
+    "tutor": {
+      "title": "申请成为导师",
+      "description": "加入我们的团队成为志愿者导师"
+    },
+    "tutee": {
+      "title": "注册成为学员",
+      "description": "注册接受免费辅导"
+    },
+    "form": {
+      "fullName": "全名",
+      "fullNamePlaceholder": "您的全名",
+      "email": "电子邮件",
+      "emailPlaceholder": "your@email.com",
+      "phone": "电话",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "grade": "首选年级",
+      "subjects": "教授科目",
+      "availability": "可用性",
+      "availabilityPlaceholder": "例如，工作日下午 3-6 点，周末上午",
+      "experience": "教学/辅导经验",
+      "experiencePlaceholder": "告诉我们您的经验（志愿者工作、同伴辅导等）",
+      "motivation": "为什么要加入 SST？",
+      "motivationPlaceholder": "是什么促使您成为我们的导师？",
+      "submit": "提交申请",
+      "confirmation": "我们将审核您的申请并在 3-5 个工作日内回复您。"
+    }
+  },
+
+  "footer": {
+    "address": "345 Chambers St, Manhattan, NY 10282",
+    "copyright": "© 史岱文森高中 2026",
+    "credits": "制作人员",
+    "development": "网站开发负责人：David Lee"
+  }
+}

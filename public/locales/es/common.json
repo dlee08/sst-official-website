@@ -1,0 +1,113 @@
+{
+  "title": "Tutoría de Verano de Stuyvesant",
+  "subtitle": "Una Organización Sin Fines de Lucro de Tutoría Gratuita K-9 de ELA, Matemáticas y Ciencias con sede en Stuyvesant High School, Nueva York",
+  "cta": "Comenzar",
+
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "gallery": "Galería",
+    "apply": "Aplicar"
+  },
+
+  "about": {
+    "title": "Acerca de Nosotros",
+    "subtitle": "Stuyvesant Summer Tutoring se dedica a proporcionar educación gratuita y de calidad a estudiantes de K-9 en ELA y Matemáticas.",
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Aprende sobre lo que nos impulsa hacia adelante"
+    },
+    "team": {
+      "title": "El Equipo",
+      "description": "Conoce a las personas detrás de SST"
+    },
+    "impact": {
+      "title": "Nuestro Impacto",
+      "description": "Mira la diferencia que estamos haciendo"
+    }
+  },
+
+  "impact": {
+    "timeline": {
+      "2025": {
+        "badge": "AÑO ACTUAL",
+        "title": "Impacto Récord",
+        "stats": {
+          "tutors": "Tutores Dedicados",
+          "students": "Estudiantes Servidos",
+          "hours": "Horas de Voluntariado",
+          "libraries": "Bibliotecas de NYC",
+          "satisfaction": "Calificación de Satisfacción Estudiantil"
+        },
+        "description": "Nuestro verano más exitoso hasta la fecha, con un crecimiento sin precedentes en todas las métricas. La calificación de satisfacción del 96% refleja nuestro compromiso con la tutoría personalizada de calidad que realmente hace una diferencia en las vidas de los estudiantes."
+      },
+      "2024": {
+        "title": "Expandiendo Nuestro Alcance",
+        "stats": {
+          "tutors": "Tutores",
+          "tutees": "Estudiantes",
+          "hours": "Horas de Voluntariado"
+        },
+        "description": "Crecimiento continuo con un aumento del 25% en tutores y expansión a nuevas sucursales de bibliotecas en los cinco distritos. Nuestro modelo probado de tutoría entre pares ganó reconocimiento de educadores y líderes comunitarios de NYC."
+      },
+      "earlier": {
+        "title": "Nuestro Viaje Comienza",
+        "description": "SST fue fundado por estudiantes de Stuyvesant apasionados por retribuir a su comunidad. Desde nuestros humildes comienzos con un puñado de tutores en una sucursal de biblioteca, hemos crecido hasta convertirnos en un programa de toda la ciudad que sirve a cientos de estudiantes. A través de los desafíos de la pandemia y más allá, hemos permanecido comprometidos a proporcionar educación gratuita y de calidad a estudiantes de K-9 en los cinco distritos.",
+        "disclaimer": "Nota: Como este sitio web fue desarrollado recientemente, las estadísticas detalladas de años anteriores no están disponibles actualmente. Pedimos disculpas por cualquier inconveniente. Nuestro compromiso con la transparencia significa que estamos trabajando para recopilar estos datos históricos para referencia futura."
+      }
+    }
+  },
+
+  "gallery": {
+    "title": "Galería",
+    "subtitle": "Explora nuestra colección de recuerdos y momentos de nuestras sesiones de tutoría.",
+    "summer2025": {
+      "title": "Verano 2025",
+      "description": "Fotos y momentos destacados del verano 2025"
+    },
+    "disclaimer": {
+      "title": "Aviso Legal",
+      "description": "Información importante sobre nuestra galería"
+    }
+  },
+
+  "apply": {
+    "title": "ÚNETE A NOSOTROS",
+    "subtitle": "Conviértete en tutor y ayuda a los estudiantes de K-9 a sobresalir en ELA y Matemáticas.",
+    "subtitle2": "Haz un impacto. Gana experiencia. Construye comunidad.",
+    "getStarted": "Comenzar",
+    "tutor": {
+      "title": "Aplicar como Tutor",
+      "description": "Únete a nuestro equipo como tutor voluntario"
+    },
+    "tutee": {
+      "title": "Registrarse como Estudiante",
+      "description": "Regístrate para recibir tutoría gratuita"
+    },
+    "form": {
+      "fullName": "Nombre Completo",
+      "fullNamePlaceholder": "Tu nombre completo",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+1 (555) 000-0000",
+      "grade": "Nivel de Grado Preferido",
+      "subjects": "Materia(s) a Enseñar",
+      "availability": "Disponibilidad",
+      "availabilityPlaceholder": "ej., Días de semana 3-6pm, Fines de semana por la mañana",
+      "experience": "Experiencia de Enseñanza/Tutoría",
+      "experiencePlaceholder": "Cuéntanos sobre tu experiencia (trabajo voluntario, tutoría entre compañeros, etc.)",
+      "motivation": "¿Por qué quieres unirte a SST?",
+      "motivationPlaceholder": "¿Qué te motiva a convertirte en tutor con nosotros?",
+      "submit": "ENVIAR SOLICITUD",
+      "confirmation": "Revisaremos tu solicitud y te responderemos en 3-5 días hábiles."
+    }
+  },
+
+  "footer": {
+    "address": "345 Chambers St, Manhattan, NY 10282",
+    "copyright": "© Stuyvesant High School 2026",
+    "credits": "Créditos",
+    "development": "Líder de Desarrollo Web: David Lee"
+  }
+}
