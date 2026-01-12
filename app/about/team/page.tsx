@@ -347,7 +347,7 @@ export default function TeamPage() {
                 fontSize="text-2xl md:text-3xl lg:text-4xl"
                 fontFamily="font-bold"
                 textColor="text-white"
-                animationDelay={5000}
+                animationDelay={3000}
                 className="min-h-[400px]"
               />
 

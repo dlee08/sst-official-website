@@ -42,15 +42,16 @@ export default function BlurTextAnimation({
     return splitWords.map((word, index) => {
       const progress = index / totalWords;
 
-      const exponentialDelay = Math.pow(progress, 0.8) * 0.5;
+      // Increased delays to ensure all names are animated
+      const exponentialDelay = Math.pow(progress, 0.7) * 3; // Increased from 0.5 to 3
 
-      const baseDelay = index * 0.06;
+      const baseDelay = index * 0.15; // Increased from 0.06 to 0.15
 
-      const microVariation = (Math.random() - 0.5) * 0.05;
+      const microVariation = (Math.random() - 0.5) * 0.08; // Slightly increased variation
 
       return {
         text: word,
-        duration: 2.2 + Math.cos(index * 0.3) * 0.3,
+        duration: 1.8 + Math.cos(index * 0.3) * 0.2, // Slightly faster individual animations
         delay: baseDelay + exponentialDelay + microVariation,
         blur: 12 + Math.floor(Math.random() * 8),
         scale: 0.9 + Math.sin(index * 0.2) * 0.05
