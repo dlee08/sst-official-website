@@ -106,7 +106,7 @@ export default function Summer2025Gallery() {
         </motion.div>
 
         {/* Photo Grid with staggered animation */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {photos.map((photo, index) => (
             <motion.div
               key={photo.id}
@@ -176,7 +176,7 @@ export default function Summer2025Gallery() {
                 </div>
 
                 {/* Image container */}
-                <div className="bg-white dark:bg-zinc-900 border-4 border-white p-4 mb-6">
+                <div className="bg-white dark:bg-zinc-900 border-4 border-white p-4">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={photo.src}
@@ -185,25 +185,6 @@ export default function Summer2025Gallery() {
                       className="object-contain"
                       sizes="(max-width: 1200px) 100vw, 1200px"
                     />
-                  </div>
-                </div>
-
-                {/* Description card */}
-                <div className="bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 p-8 border-4 border-white dark:border-zinc-950">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-white dark:bg-zinc-950 flex items-center justify-center">
-                      <span className="text-zinc-950 dark:text-white font-black text-xl">
-                        {photo.id}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-3xl font-black tracking-tight mb-4">
-                        {photo.caption}
-                      </h3>
-                      <p className="text-lg leading-relaxed opacity-90">
-                        {photo.description}
-                      </p>
-                    </div>
                   </div>
                 </div>
               </motion.div>

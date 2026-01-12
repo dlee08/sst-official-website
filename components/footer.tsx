@@ -92,7 +92,7 @@ export function Footer() {
               href="https://en.wikipedia.org/wiki/Stuyvesant_High_School"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-transform hover:scale-110 duration-300 relative z-[60]"
+              className="transition-transform hover:scale-110 duration-300"
             >
               <div className="w-32 h-32 relative">
                 <Image
